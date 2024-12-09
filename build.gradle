@@ -11,6 +11,23 @@ repositories {
     maven { url 'https://jitpack.io' }
 }
 
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java // 确保将 Java 组件（jar）作为产物发布
+
+            groupId = project.group
+            artifactId = 'NIODevFramework'
+            version = project.version // 使用 project.version 获取版本号
+        }
+    }
+    repositories {
+        maven {
+            url = uri("https://jitpack.io") // 如果你需要发布到 JitPack，这里是 JitPack 仓库
+        }
+    }
+}
+
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
