@@ -4,12 +4,20 @@ plugins {
 }
 
 group = 'com.github.GoldSprite'
-version = '0.1.0-SNAPSHOT'
+version = '0.1.0'
 
 repositories {
     mavenCentral()
     maven { url 'https://jitpack.io' }
 }
+
+task buildJar(type: Jar) {
+    from sourceSets.main.output
+    archiveBaseName = 'NIOLauncher'
+    destinationDirectory = file("outputs")
+    outputs.upToDateWhen { false }  // 禁用 UP-TO-DATE 检查，确保每次都重新构建
+}
+build.dependsOn buildJar // 确保 build 任务会依赖于构建 JAR 任务
 
 publishing {
     publications {
