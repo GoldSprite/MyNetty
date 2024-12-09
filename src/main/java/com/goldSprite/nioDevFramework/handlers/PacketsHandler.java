@@ -22,7 +22,7 @@ import java.util.List;
 
 public class PacketsHandler extends SimpleChannelInboundHandler<DatagramPacket> {
     private boolean isServer;
-    private final HashMap<Class<? extends Packet>, List<PacketCallback2>> callbacks = new HashMap<>();
+    private final HashMap<Class<? extends Packet>, List<PacketCallback2<Packet>>> callbacks = new HashMap<>();
 
     public PacketsHandler() {
     }

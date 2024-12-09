@@ -10,7 +10,7 @@ public interface ILogLevel {
     int INFO = 4;// 信息: 程序运行提示信息
     int MSG = 5;// 消息: 玩家看到的消息
 
-    HashMap<Integer, String> msgMap = new HashMap<Integer, String>() {{
+    HashMap<Integer, String> msgMap = new HashMap<>() {{
         put(ILogLevel.MSG, "[ MSG ] ");
         put(ILogLevel.INFO, "[INFO ] ");
         put(ILogLevel.DEBUG, "[DEBUG] ");

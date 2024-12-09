@@ -25,7 +25,7 @@ public interface IStatus {
     int RETURN_DEFEAT_LOGIN_NOTLOGIN = 40111;
     String MSG_RETURN_DEFEAT_LOGIN_NOTLOGIN = "未登录, 请先登录";
 
-    HashMap<Integer, String> msgMap = new HashMap<Integer, String>() {{
+    HashMap<Integer, String> msgMap = new HashMap<>() {{
 //        put(RETURN_SUCCESS_LOGIN, MSG_RETURN_SUCCESS_LOGIN);
         put(RETURN_SUCCESS_LOGIN_PUSHTOP, MSG_RETURN_SUCCESS_LOGIN_PUSHTOP);
         put(RETURN_DEFEAT_LOGIN_REPEAT, MSG_RETURN_DEFEAT_LOGIN_REPEAT);
