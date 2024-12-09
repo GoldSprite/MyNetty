@@ -11,6 +11,22 @@ repositories {
     maven { url 'https://jitpack.io' }
 }
 
+dependencies {
+    // Netty
+    implementation 'io.netty:netty-all:4.1.35.Final'
+    // Lombok
+    implementation 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    // Gson
+    implementation 'com.google.code.gson:gson:2.9.1'
+    // Junit5
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xlint:unchecked"
+}
 task buildJar(type: Jar) {
     from sourceSets.main.output
     archiveBaseName = 'NIOLauncher'
@@ -25,7 +41,7 @@ publishing {
             from components.java // 确保将 Java 组件（jar）作为产物发布
 
             groupId = project.group
-            artifactId = 'NIODevFramework'
+            artifactId = rootProject.name // 使用 rootProject.name 获取项目名称
             version = project.version // 使用 project.version 获取版本号
         }
     }
@@ -34,11 +50,6 @@ publishing {
             url = uri("https://jitpack.io") // 如果你需要发布到 JitPack，这里是 JitPack 仓库
         }
     }
-}
-
-dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 
 test {
