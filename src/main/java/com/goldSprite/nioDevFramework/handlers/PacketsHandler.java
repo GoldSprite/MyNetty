@@ -187,7 +187,6 @@ public class PacketsHandler extends SimpleChannelInboundHandler<DatagramPacket> 
         });
     }
 
-    @SuppressWarnings("unchecked")
     private <T extends Packet> void callback(T pk) {
         var pkCallbacks = callbacks.get(pk.getClass());
         if (pkCallbacks != null && !pkCallbacks.isEmpty()) {
