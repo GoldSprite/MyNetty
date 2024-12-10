@@ -6,16 +6,11 @@ plugins {
 group = 'com.github.GoldSprite'
 version = '0.1.0'
 
-//java {
-//    sourceCompatibility = JavaVersion.VERSION_11
-//    targetCompatibility = JavaVersion.VERSION_11
-//}
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(11)
     }
 }
-
 repositories {
     mavenCentral()
     maven { url 'https://jitpack.io' }
@@ -35,7 +30,9 @@ dependencies {
 }
 
 tasks.withType(JavaCompile) {
-    options.compilerArgs << "-Xlint:unchecked"
+//    options.compilerArgs << "-Xlint:unchecked"
+    options.compilerArgs << "-Xlint:none"
+
 }
 task buildJar(type: Jar) {
     from sourceSets.main.output
